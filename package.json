@@ -1,0 +1,19 @@
+{
+  "name": "yoe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aswinzz/years-of-experience.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aswinzz/years-of-experience/issues"
+  },
+  "homepage": "https://github.com/aswinzz/years-of-experience#readme"
+}
