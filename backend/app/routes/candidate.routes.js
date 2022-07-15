@@ -9,6 +9,7 @@ module.exports = app => {
   router.post("/", upload.single('profilePicture'), application.create);
   router.get("/", application.findAll);
   router.get("/:id", application.findOne);
+  router.get("/profiles/:id", application.publicProfile);
   router.put("/:id", upload.single('profilePicture'), application.update);
   router.delete("/:id", application.delete);
   router.delete("/", application.deleteAll);

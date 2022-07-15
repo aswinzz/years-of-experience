@@ -13,6 +13,7 @@ exports.create = async (req, res) => {
   console.log(req.body);
   const candidate = {
     name: req.body.name,
+    status: req.body.status || 'private',
     profilePictureType: req.file.mimetype,
     profilePictureName: req.file.originalname,
     profilePictureData: req.file.buffer, 
@@ -60,6 +61,26 @@ exports.findAll = async (req, res) => {
 exports.findOne = (req, res) => {
   
 };
+
+exports.publicProfile = async (req, res) => {
+  const candidate = await Candidate.findOne({
+    where: { id: req.params.id, status: "public" },
+    include: [
+      {
+        model: Experience
+      },
+    ]
+  });
+
+  if (!candidate) {
+    return res.status(404).send("Profile Not Found");
+  }
+
+  const candidateImage = candidate.profilePictureData.toString('base64')
+  candidate['profilePictureData'] = candidateImage
+
+  res.status(200).json({candidate: candidate});
+}
 
 exports.update = async (req, res) => {
   const candidate = await Candidate.findByPk(req.params.id);
