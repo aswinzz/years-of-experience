@@ -61,8 +61,45 @@ exports.findOne = (req, res) => {
   
 };
 
-exports.update = (req, res) => {
-  
+exports.update = async (req, res) => {
+  const candidate = await Candidate.findByPk(req.params.id);
+  if (!candidate) {
+    return res.status(404);
+  }
+
+  await Candidate.update(
+    {
+      name: req.body.name,
+      profilePictureType: req.file.mimetype,
+      profilePictureName: req.file.originalname,
+      profilePictureData: req.file.buffer,
+    },
+    { where: { id: req.params.id }}
+  )
+
+  await Experience.destroy({
+    where: {
+      candidateId: req.params.id
+    },
+  });
+
+  const workExperiences = [];
+  req.body.experiences.map(experience => {
+    workExperiences.push({
+      candidateId: candidate.id,
+      title: experience.title,
+      company: experience.company,
+      companyLogo: experience.companyLogo,
+      description: experience.description,
+      start: new Date(experience.start),
+      end: new Date(experience.end),
+      current: experience.current || false
+    });
+  });
+  Experience.bulkCreate(workExperiences);
+  const updatedCandidate = await Candidate.findByPk(req.params.id);
+
+  res.send(updatedCandidate);
 };
 
 exports.delete = (req, res) => {
