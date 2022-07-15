@@ -15,4 +15,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.candidates = require("./candidate.model.js")(sequelize, Sequelize);
+db.experiences = require("./experience.model.js")(sequelize, Sequelize);
+db.candidates.hasMany(db.experiences);
 module.exports = db;
