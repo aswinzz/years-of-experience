@@ -113,8 +113,8 @@ exports.update = async (req, res) => {
       companyLogo: experience.companyLogo,
       description: experience.description,
       start: new Date(experience.start),
-      end: new Date(experience.end),
-      current: experience.current || false
+      end: experience.end ? new Date(experience.end) : null,
+      current: experience.current === 'true' || false
     });
   });
   Experience.bulkCreate(workExperiences);

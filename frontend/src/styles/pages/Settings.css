@@ -56,6 +56,11 @@
     margin: 1rem 1rem 0 0;
 }
 
+.profile-details-section-experience__field--next-row {
+    flex-basis: 100%;
+    height: 0;
+}
+
 .profile-details-section-experience__container {
     display: flex;
     flex-wrap: wrap;
@@ -63,6 +68,7 @@
     border-radius: 16px;
     padding: 1rem 1rem 2rem 1rem;
     margin: 1rem 0;
+    /* max-width: 73rem; */
 }
 
 .profile-details-section-experience__add {

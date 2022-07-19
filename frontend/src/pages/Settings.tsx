@@ -14,11 +14,11 @@ function Settings() {
       companyLogo: '',
       start: '',
       end: '',
-      current: false
+      current: true
     }
   ]);
 
-  const onExperienceDetailsChange = useCallback((field: string, idx: number, value: string) => {
+  const onExperienceDetailsChange = useCallback((field: string, idx: number, value: boolean | string) => {
     experiences[idx][field] = value;
     setExperiences([...experiences]);
   }, [experiences]);
@@ -36,7 +36,7 @@ function Settings() {
       companyLogo: '',
       start: '',
       end: '',
-      current: false
+      current: true
     });
     setExperiences([...experiences]);
   }, [experiences]);
@@ -54,6 +54,7 @@ function Settings() {
       formData.append(`experiences[${idx}][companyLogo]`, experience.companyLogo);
       formData.append(`experiences[${idx}][start]`, experience.start);
       formData.append(`experiences[${idx}][end]`, experience.end);
+      formData.append(`experiences[${idx}][current]`, experience.current ? "true" : "false");
     });
     updateProfile(1, formData);
   }, [name, profilePicture, experiences]);
@@ -128,8 +129,14 @@ function Settings() {
                         <div className='profile-details-section-experience__field'>
                           <Input type="date" label='Start' value={experience.start} onChange={(value: string) => onExperienceDetailsChange('start', idx, value)}/>
                         </div>
-                        <div className='profile-details-section-experience__field'>
+                        {!experience.current && <div className='profile-details-section-experience__field'>
                           <Input type="date" label='End' value={experience.end} onChange={(value: string) => onExperienceDetailsChange('end', idx, value)}/>
+                        </div>}
+                        <div className='profile-details-section-experience__field profile-details-section-experience__field--next-row'>
+                          <div className='profile-details-section-experience__currrent-checkbox'>
+                            <input type="checkbox" defaultChecked={experience.current} onChange={() => onExperienceDetailsChange('current', idx, !experience.current)} />
+                            I'm currently working in this company
+                          </div>
                         </div>
                       </div>
                     );
