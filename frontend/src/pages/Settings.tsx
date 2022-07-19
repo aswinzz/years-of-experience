@@ -126,10 +126,10 @@ function Settings() {
                           <Input label='CompanyLogo' value={experience.companyLogo} onChange={(value: string) => onExperienceDetailsChange('companyLogo', idx, value)}/>
                         </div>
                         <div className='profile-details-section-experience__field'>
-                          <Input label='Start' value={experience.start} onChange={(value: string) => onExperienceDetailsChange('start', idx, value)}/>
+                          <Input type="date" label='Start' value={experience.start} onChange={(value: string) => onExperienceDetailsChange('start', idx, value)}/>
                         </div>
                         <div className='profile-details-section-experience__field'>
-                          <Input label='End' value={experience.end} onChange={(value: string) => onExperienceDetailsChange('end', idx, value)}/>
+                          <Input type="date" label='End' value={experience.end} onChange={(value: string) => onExperienceDetailsChange('end', idx, value)}/>
                         </div>
                       </div>
                     );
