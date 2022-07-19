@@ -1,0 +1,44 @@
+.input-text {
+    font-family: inherit;
+    padding: 1rem 5rem 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    background: #eee;
+    font-weight: 400;
+  }
+  
+  .input-text:focus {
+    outline-color: #2196f3;
+  }
+  
+  .label {
+    pointer-events: none;
+  
+    position: absolute;
+    top: -0.2rem;
+    left: 2rem;
+    color: #00000070;
+    font-weight: 500;
+    font-size: 1.2rem;
+  
+    transition: all 0.2s;
+    transform-origin: left;
+  }
+  
+  .input-text:not(:placeholder-shown) + .label,
+  .input-text:focus + .label {
+    top: -1rem;
+    transform: scale(0.75);
+  }
+  
+  .input-text:focus + .label {
+    color: #2196f3;
+  }
+  
+  .input-wrapper {
+    flex-direction: column;
+  }
+  
+  .inp {
+    position: relative;
+  }

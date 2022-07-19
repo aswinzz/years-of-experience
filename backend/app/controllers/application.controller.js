@@ -47,7 +47,7 @@ exports.findAll = async (req, res) => {
        ],
       });
     candidates.map(candidate => {
-      const candidateImage = candidate.profilePictureData.toString('base64')
+      const candidateImage = candidate.profilePictureData?.toString('base64')
       candidate['profilePictureData'] = candidateImage
     });
 
@@ -85,7 +85,7 @@ exports.publicProfile = async (req, res) => {
 exports.update = async (req, res) => {
   const candidate = await Candidate.findByPk(req.params.id);
   if (!candidate) {
-    return res.status(404);
+    return res.status(404).send("Candidate Profile Not Found");;
   }
 
   await Candidate.update(

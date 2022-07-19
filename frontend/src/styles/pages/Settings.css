@@ -1,0 +1,71 @@
+
+.settings-container {
+    margin: 2rem 5rem;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 6rem;
+}
+
+.settings-header__title {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.settings-content {
+    display: flex;
+}
+
+.settings-panel__right {
+    margin: 5rem;
+}
+
+.settings-panel__left {
+    margin-top: 2rem;
+    min-width: 10rem;
+}
+
+.settings-left-panel__item {
+    background-color: #EEF1F7;
+    padding: 0.5rem 1rem;
+    border-radius: 1.11rem;
+    margin: 1rem 0;
+}
+
+.settings-right-panel__header {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.settings-right-panel__content {
+    margin-top: 3rem;
+}
+
+.profile-details-section-input__container {
+    margin: 1rem 0;
+}
+
+.profile-details-section__header {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.profile-details-section-experience__field {
+    margin: 1rem 1rem 0 0;
+}
+
+.profile-details-section-experience__container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #ccc!important;
+    border-radius: 16px;
+    padding: 1rem 1rem 2rem 1rem;
+    margin: 1rem 0;
+}
+
+.profile-details-section-experience__add {
+    display: flex;
+    margin: 1rem 0;
+}

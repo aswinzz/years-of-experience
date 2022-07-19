@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.btn {
+  display: inline-block;
+  font-family: inherit;
+  font-size: clamp(0.88rem, calc(0.8rem + 0.38vw), 1rem);
+  font-weight: 500;
+  line-height: 1.25;
+  user-select: none;
+  text-align: center;
+  white-space: nowrap;
+  margin-left: auto;
+  padding: 0.65rem 1.35rem;
+  border-radius: 3rem;
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(152, 24%, 35%);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-in-out;
+}
